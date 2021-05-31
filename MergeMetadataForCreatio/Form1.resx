@@ -117,4 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAATQP/0E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP/0E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//Ikz//xZC//8TQP//E0D//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//zBY//+xv///rbz//3aQ
+        //9AZP//G0f//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//Hkn//6W2
+        ///+/v///v7//+vv//+8yf//hZz//05v//8iTP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//zRb
+        //+mt////f3/////////////+Pn//8nT//+Hnv//OV///xNA//8TQP//E0D//xNA//8TQP//MFj//56x
+        ///2+P///v7//+Xq//+ouP//ZIL//yhR//8UQf//E0D//xNA//8TQP//E0D//xNA//8tVf//maz//+zw
+        ///I0v//hZz//0Nn//8ZRf//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//yhR//95kv//mq3//2OB
+        //8oUf//FEH//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xpF//80Wv//GET//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP/0E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA//8TQP//E0D//xNA
+        //8TQP/0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

@@ -29,13 +29,15 @@ namespace MergeMetadataForCreatio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblFirstValue = new System.Windows.Forms.Label();
             this.btnMerge = new System.Windows.Forms.Button();
             this.lblSecondValue = new System.Windows.Forms.Label();
-            this.tbResult = new System.Windows.Forms.TextBox();
             this.tbValue1 = new System.Windows.Forms.RichTextBox();
             this.tbValue2 = new System.Windows.Forms.RichTextBox();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.tbResult = new System.Windows.Forms.RichTextBox();
+            this.lblFinishValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFirstValue
@@ -68,15 +70,6 @@ namespace MergeMetadataForCreatio
             this.lblSecondValue.TabIndex = 4;
             this.lblSecondValue.Text = "Second Value";
             // 
-            // tbResult
-            // 
-            this.tbResult.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbResult.Location = new System.Drawing.Point(12, 272);
-            this.tbResult.Multiline = true;
-            this.tbResult.Name = "tbResult";
-            this.tbResult.Size = new System.Drawing.Size(1206, 124);
-            this.tbResult.TabIndex = 5;
-            // 
             // tbValue1
             // 
             this.tbValue1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -107,18 +100,38 @@ namespace MergeMetadataForCreatio
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
+            // tbResult
+            // 
+            this.tbResult.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbResult.Location = new System.Drawing.Point(12, 272);
+            this.tbResult.Name = "tbResult";
+            this.tbResult.Size = new System.Drawing.Size(1206, 124);
+            this.tbResult.TabIndex = 9;
+            this.tbResult.Text = "";
+            // 
+            // lblFinishValue
+            // 
+            this.lblFinishValue.AutoSize = true;
+            this.lblFinishValue.Location = new System.Drawing.Point(12, 256);
+            this.lblFinishValue.Name = "lblFinishValue";
+            this.lblFinishValue.Size = new System.Drawing.Size(64, 13);
+            this.lblFinishValue.TabIndex = 10;
+            this.lblFinishValue.Text = "Finish Value";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 435);
+            this.Controls.Add(this.lblFinishValue);
+            this.Controls.Add(this.tbResult);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.tbValue2);
             this.Controls.Add(this.tbValue1);
-            this.Controls.Add(this.tbResult);
             this.Controls.Add(this.lblSecondValue);
             this.Controls.Add(this.btnMerge);
             this.Controls.Add(this.lblFirstValue);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Merge Metadata From Creatio";
             this.ResumeLayout(false);
@@ -130,10 +143,11 @@ namespace MergeMetadataForCreatio
         private System.Windows.Forms.Label lblFirstValue;
         private System.Windows.Forms.Button btnMerge;
         private System.Windows.Forms.Label lblSecondValue;
-        private System.Windows.Forms.TextBox tbResult;
         private System.Windows.Forms.RichTextBox tbValue1;
         private System.Windows.Forms.RichTextBox tbValue2;
         private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.RichTextBox tbResult;
+        private System.Windows.Forms.Label lblFinishValue;
     }
 }
 

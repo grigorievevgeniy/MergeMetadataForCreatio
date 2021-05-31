@@ -26,41 +26,86 @@ namespace MergeMetadataForCreatio
 
             string value1 = tbValue1.Text;
             var guids1 = GetGuids(value1);
-            lblFirstValue.Text += " " + guids1.Count + " значений.";
+            lblFirstValue.Text = "First Value " + guids1.Count + " значений.";
 
             string value2 = tbValue2.Text;
             var guids2 = GetGuids(value2);
-            lblSecondValue.Text += " " + guids2.Count + " значений.";
+            lblSecondValue.Text = "Second Value " + guids2.Count + " значений.";
 
             var finishGuids = GetTotalList(guids1, guids2);
 
-            tbResult.Text = ConvertGuidsToString(finishGuids);
+            FillFinishGuids(guids1, guids2, finishGuids);
+            //tbResult.Text = ConvertGuidsToString(finishGuids);
+            lblFinishValue.Text = "Finish Value " + finishGuids.Count + " значений.";
 
             RefreshTextBoxes(guids1, guids2);
         }
 
-        private void btnCopy_Click(object sender, EventArgs e) => Clipboard.SetText(tbResult.Text);
-
-        private void RefreshTextBoxes(List<Guid> guids1, List<Guid> guids2)
+        private void FillFinishGuids(List<Guid> guids1, List<Guid> guids2, List<Guid> finishGuids)
         {
-            tbValue1.Clear();
-            tbValue1.AppendText(prefix + "[\n", Color.Blue);
-            for (int i = 0; i < guids1.Count; i++)
+            tbResult.Clear();
+            tbResult.AppendText(prefix + "[\n", Color.Black);
+            for (int i = 0; i < finishGuids.Count; i++)
             {
-                if (guids2.Contains(guids1[i]))
+                if (guids1.Contains(finishGuids[i]) && guids2.Contains(finishGuids[i]))
                 {
-                    tbValue1.AppendText("\"" + guids1[i] + "\",", Color.Blue);
-                    if (i == guids1.Count - 1)
+                    tbResult.AppendText("\"" + finishGuids[i] + "\"", Color.Black);
+                    if (i != finishGuids.Count - 1)
                     {
-                        tbValue1.AppendText(",", Color.Blue);
+                        tbResult.AppendText(",", Color.Black);
+                    }
+                }
+                else if (guids1.Contains(finishGuids[i]) && !guids2.Contains(finishGuids[i]))
+                {
+                    tbResult.AppendText("\"" + finishGuids[i] + "\"", Color.Blue);
+                    if (i != finishGuids.Count - 1)
+                    {
+                        tbResult.AppendText(",", Color.Blue);
+                    }
+                }
+                else if (!guids1.Contains(finishGuids[i]) && guids2.Contains(finishGuids[i]))
+                {
+                    tbResult.AppendText("\"" + finishGuids[i] + "\"", Color.Red);
+                    if (i != finishGuids.Count - 1)
+                    {
+                        tbResult.AppendText(",", Color.Red);
                     }
                 }
                 else
                 {
-                    tbValue1.AppendText("\"" + guids1[i] + "\"", Color.Red);
-                    if (i == guids1.Count - 1)
+                    throw new Exception("Ошибка в логике программы, Guid должен быть хотя бы в одном наборе.");    
+                }
+
+                if ((i + 1) % 4 == 0 && i != finishGuids.Count - 1)
+                {
+                    tbResult.AppendText("\n");
+                }
+            }
+            tbResult.AppendText("]", Color.Black);
+        }
+
+        private void btnCopy_Click(object sender, EventArgs e) => Clipboard.SetText(tbResult.Text.Replace("\n", ""));
+
+        private void RefreshTextBoxes(List<Guid> guids1, List<Guid> guids2)
+        {
+            tbValue1.Clear();
+            tbValue1.AppendText(prefix + "[\n", Color.Black);
+            for (int i = 0; i < guids1.Count; i++)
+            {
+                if (guids2.Contains(guids1[i]))
+                {
+                    tbValue1.AppendText("\"" + guids1[i] + "\"", Color.Black);
+                    if (i != guids1.Count - 1)
                     {
-                        tbValue1.AppendText(",", Color.Red);
+                        tbValue1.AppendText(",", Color.Black);
+                    }
+                }
+                else
+                {
+                    tbValue1.AppendText("\"" + guids1[i] + "\"", Color.Blue);
+                    if (i != guids1.Count - 1)
+                    {
+                        tbValue1.AppendText(",", Color.Blue);
                     }
                 }
 
@@ -69,37 +114,35 @@ namespace MergeMetadataForCreatio
                     tbValue1.AppendText("\n");
                 }
             }
-            tbValue1.AppendText("]", Color.Blue);
+            tbValue1.AppendText("]", Color.Black);
 
             tbValue2.Clear();
-            tbValue2.AppendText(prefix + "[\n", Color.Blue);
+            tbValue2.AppendText(prefix + "[\n", Color.Black);
             for (int i = 0; i < guids2.Count; i++)
             {
                 if (guids1.Contains(guids2[i]))
                 {
-                    tbValue2.AppendText("\"" + guids2[i] + "\",", Color.Blue);
-                    if (i == guids1.Count - 1)
+                    tbValue2.AppendText("\"" + guids2[i] + "\"", Color.Black);
+                    if (i != guids1.Count - 1)
                     {
-                        tbValue1.AppendText(",", Color.Blue);
+                        tbValue2.AppendText(",", Color.Black);
                     }
                 }
                 else
                 {
-                    tbValue2.AppendText("\"" + guids2[i] + "\",", Color.Red);
-                    if (i == guids1.Count - 1)
+                    tbValue2.AppendText("\"" + guids2[i] + "\"", Color.Red);
+                    if (i != guids1.Count - 1)
                     {
-                        tbValue1.AppendText(",", Color.Red);
+                        tbValue2.AppendText(",", Color.Red);
                     }
                 }
-
-                //ToDo удалить последнюю запятую
 
                 if (i % 2 == 1 && i != guids1.Count - 1)
                 {
                     tbValue2.AppendText("\n");
                 }
             }
-            tbValue2.AppendText("]", Color.Blue);
+            tbValue2.AppendText("]", Color.Black);
         }
 
         #region Help Methods
@@ -142,11 +185,18 @@ namespace MergeMetadataForCreatio
                 }
                 else
                 {
-                    throw new Exception("Некорректные данные");
+                    throw new Exception("Некорректные данные, должен быть только 1 символ '['");
                 }
             }
 
-            guids = JsonConvert.DeserializeObject<List<Guid>>(str);
+            try
+            {
+                guids = JsonConvert.DeserializeObject<List<Guid>>(str);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
             return guids;
         }
